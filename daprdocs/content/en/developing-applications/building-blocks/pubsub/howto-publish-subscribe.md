@@ -14,9 +14,9 @@ Using Pub/Sub, you can enable scenarios where event consumers are decoupled from
 Dapr provides an extensible Pub/Sub system with At-Least-Once guarantees, allowing developers to publish and subscribe to topics.
 Dapr provides different implementation of the underlying system, and allows operators to bring in their preferred infrastructure, for example Redis Streams, Kafka, etc.
 
-## Step 1: Setup the Pub/Sub component
+## Step 1: Ensure a pub/sub component is running
 
-The first step is to setup the Pub/Sub component:
+Dapr can use one of [many available]({{< ref supported-pubsub >}}) pub/sub backends to transfer messages. 
 
 {{< tabs "Self-Hosted (CLI)" Kubernetes >}}
 
@@ -38,7 +38,7 @@ spec:
     value: ""
 ```
 
-You can override this file with another Redis instance or another [pubsub component]({{< ref setup-pubsub >}}) by creating a `components` directory containing the file and using the flag `--components-path` with the `dapr run` CLI command.
+You can override this file with another Redis instance or another [pubsub component]({{< ref supported-pubsub >}}) by creating a `components` directory containing the file and using the flag `--components-path` with the `dapr run` CLI command.
 {{% /codetab %}}
 
 {{% codetab %}}
@@ -142,7 +142,7 @@ def ds_subscriber():
 
 app.run()
 ```
-After creating `app1.py` ensute flask and flask_cors are installed:
+After creating `app1.py` ensure flask and flask_cors are installed:
 
 ```bash
 pip install flask
